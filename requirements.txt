@@ -2,5 +2,4 @@ scikit-learn
 mojimoji
 pyyaml
 tqdm
-gensim
 numpy
