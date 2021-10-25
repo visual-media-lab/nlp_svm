@@ -1,0 +1,11 @@
+{
+  "data_path": "train_data.csv", # 入力するデータセットのパス
+  "sentence_index" : 2, # 入力データで文章が書いてある列番号
+  "label_index" : 0, # 入力データでラベルが書いてある列番号
+  "label_dict": {"label1" : 0, "label2" : 1}, #それぞれのラベルに割り振る番号
+  "ans" : ["label1","label2"], # 予測で出力する答え. 上のラベルと同じ順番にすること
+  "k-fold_splits" : 10, # k-foldで何分割するか
+  "save_path" : "model.pickle", # 学習済みモデルの保存先のパス
+  "TARGET_CATEGORIES" : ["名詞", "動詞", "形容詞"], #どの品詞を使うか
+  "EXCEPT_CATEGORIES" : ["固有名詞", "数"] #どの品詞を除外するか
+}
