@@ -5,10 +5,6 @@ import csv
 import mojimoji
 import yaml
 
-# stop_words_ja = ['もの', 'こと', 'とき', 'そう', 'たち', 'これ', 'よう', 'これら', 'それ', 'すべて',
-#                     "する","なる","れる","いる","その","ある","人","の","しまう"]
-# stop_words_yuri=["彼女","少女","学園","高校","出会う"]
-
 #このサイトから取ってきた↓
 #http://tyamagu2.xyz/articles/ja_text_classification/
 class WordDividor:
@@ -46,7 +42,7 @@ class WordDividor:
 #CSVファイルから文章を取り出す
 #sentence_index: 何列目に文章があるか
 #label_index: 引っ張りたいラベルが何列目か
-#label_dict: 各ラベルに対して別の文字で割り当てたいときに辞書型で与える
+#label_dict: 各ラベルに対して割り振る番号を設定
 def get_sentence(path,sentence_index,label_index,label_dict):
     #CSVの読み込み
     csv_file=open(path,"r",errors="",newline="")
@@ -61,7 +57,7 @@ def get_sentence(path,sentence_index,label_index,label_dict):
         l=i[label_index].split(",")
         sentence=i[sentence_index]
 
-        #経験年数でラベル分けする場合は71行目のコメントアウトを解除し, それ以外のときはコメントアウトしてください
+        #ラベルに半角文字と全角文字が混在する場合はコメントアウトを解除すること
         #l=[mojimoji.han_to_zen(i) for i in l]
 
         #もともとラベルがない場合は無視する
